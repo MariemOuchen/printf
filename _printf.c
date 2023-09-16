@@ -60,11 +60,16 @@ int handle_print(const char *format, int *i, va_list list)
 	ff function[] = {
 		{'c', print_char}, {'s', print_str},
 		{'%', print_37}, {'i', print_int},
-		{'d', print_int}, {'\0', NULL}
+		{'d', print_int}, {'b', print_b},
+		{'u', print_u}, {'o', print_o},
+		{'x', print_x}, {'X', print_X},
+		{'r', print_r}, {'R', print_R},
+		{'S', print_S}, {'p', print_p},
+		{'\0', NULL}
 	};
 	int j;
 
-	for (j = 0; j < 6; ++j)
+	for (j = 0; j < 15; ++j)
 	{
 		if (function[j].c == format[*i])
 			return (function[j].print(list));
